@@ -52,3 +52,50 @@ huge concessions, not least accepting Israel's existence in around 78% of their 
 
 print(input_text1)
 print(input_text2)
+
+irrelevent_words = {". ", ", ", " and ", " or ", " the ", " among ", " people ", " y ", " with ", " he ", "the",
+                    " like ", " a ", " to ", " is ", " of ", " for "
+    , " is ", " was ", " so ", " it ", " its ", " not ", " in ", " at ", " be ", " his ", " that ", " her ", " who "
+    , " no ", " on ", " an ", " are ", " there ", " as ", " will ", "-", " has ", " they ", " this ", " so ", " us ",
+                    " all ", " between "}
+for iw in irrelevent_words:
+    input_text1 = input_text1.replace(iw, " ")
+    input_text2 = input_text2.replace(iw, " ")
+
+print(input_text1)
+print(input_text2)
+
+word_list1 = input_text1.split()
+word_list2 = input_text2.split()
+
+print(word_list1)
+print(word_list2)
+
+word_histogram1 = {}
+word_histogram2 = {}
+
+for word1 in word_list1:
+    if word1 not in word_histogram1.keys():
+        word_histogram1[word1] = 1
+    else:
+        word_histogram1[word1] = word_histogram1[word1] + 1
+
+for word2 in word_list2:
+    if word2 not in word_histogram2.keys():
+        word_histogram2[word2] = 1
+    else:
+        word_histogram2[word2] = word_histogram2[word2] + 1
+
+print(word_histogram1)
+print(word_histogram2)
+
+sorted_d1 = sorted(word_histogram1.items(), key=operator.itemgetter(1))
+print(sorted_d1)
+
+sorted_d2 = sorted(word_histogram2.items(), key=operator.itemgetter(1))
+print(sorted_d2)
+
+sorted_file1 = sorted_d1[-6:]
+sorted_file2 = sorted_d2[-6:]
+print(sorted_file1)
+print(sorted_file2)
