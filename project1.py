@@ -99,3 +99,15 @@ sorted_file1 = sorted_d1[-6:]
 sorted_file2 = sorted_d2[-6:]
 print(sorted_file1)
 print(sorted_file2)
+counter = 0
+for x in sorted_file1:
+    for y in sorted_file2:
+        if x == y:
+            counter = counter + 1
+
+print(counter)
+
+if counter >= 3:
+    print("the two text talk about the same topic ")
+else:
+    print("the two text not for the same topic")
